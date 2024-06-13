@@ -32,7 +32,7 @@ jobs:
       - name: Build fonts
         run: |
           export FONT_NAME=FZKTK
-          wget -nv https://github.com/Universebenzene/wps-office-fonts/blob/master/FZKTK.TTF -O ${FONT_NAME}.TTF
+          wget -nv https://raw.githubusercontent.com/Universebenzene/wps-office-fonts/master/${FONT_NAME}.TTF -O ${FONT_NAME}.TTF
           pyftsubset ${FONT_NAME}.TTF --text-file=fonts/extra_chars.txt --no-hinting --flavor=woff2 --output-file=fonts/Extra-${FONT_NAME}-cxy.woff2
 
       - name: Push fonts
