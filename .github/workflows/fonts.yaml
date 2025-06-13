@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@HEAD
 
-      - name: Checkout chars
+      - name: Checkout blog
         uses: actions/checkout@HEAD
         with:
-          path: chars
-          repository: chuxinyuan/chars
+          path: blog
+          repository: chuxinyuan/blog
           submodules: recursive
 
       - name: Install packages
@@ -29,7 +29,7 @@ jobs:
       - name: Extract characters
         run: |
           mkdir -p fonts
-          find chars -name '*.txt' -exec grep -o -P '[\x{4E00}-\x{9FFF}]' {} \; | sort | uniq > fonts/chars.txt
+          find chars -name '*.md' -exec grep -o -P '[\x{4E00}-\x{9FFF}]' {} \; | sort | uniq > fonts/chars.txt
 
       - name: Build fonts
         run: |
